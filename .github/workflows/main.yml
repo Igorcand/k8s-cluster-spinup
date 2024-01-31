@@ -45,8 +45,14 @@ jobs:
           cat terraform_directory/ansible_inventory.ini
 
       - name: Run Ansible playbook
+      
         run: |
-          ansible-playbook -i terraform_directory/ansible_inventory.ini playbook/all.yml --tags "tag_name_k8s"
-          ansible-playbook -i terraform_directory/ansible_inventory.ini playbook/master.yml --tags "tag_type_master"
-          ansible-playbook -i terraform_directory/ansible_inventory.ini playbook/worker.yml --tags "tag_type_worker"
+          mkdir -p ~/.ssh/
+          echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
+          unset PRIVATE_KEY
+          chmod 600 ~/.ssh/id_rsa
+
+          ansible-playbook -i terraform_directory/ansible_inventory.ini playbook/all.yml --tags "tag_name_k8s" --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa
+          ansible-playbook -i terraform_directory/ansible_inventory.ini playbook/master.yml --tags "tag_type_master" --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa
+          ansible-playbook -i terraform_directory/ansible_inventory.ini playbook/worker.yml --tags "tag_type_worker" --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa
 
