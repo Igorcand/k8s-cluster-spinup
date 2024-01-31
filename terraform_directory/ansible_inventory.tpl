@@ -1,2 +1,1 @@
-${master_ip}
-${worker_ips}
+${master_ip}, ${worker_ips},
