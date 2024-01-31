@@ -2,4 +2,4 @@
   become: yes
   hosts: tag_type_worker
   roles:
-    - k8s-worker
+    - ./roles/k8s-worker
