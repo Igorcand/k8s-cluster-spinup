@@ -40,6 +40,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ansible
           ansible --version
+      - name: View available hosts
+        run: |
+          cat /terraform_directory/ansible_inventory.ini
+
       - name: Run Ansible playbook
         run: |
           ansible-playbook -i /terraform_directory/ansible_inventory.ini install_docker_and_k8s.yml
