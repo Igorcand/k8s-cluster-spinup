@@ -46,7 +46,7 @@ jobs:
 
       - name: Configure SSH
         run: |
-          mkdir /.ssh/
+          sudo mkdir /.ssh/
 
           ls -la /.ssh/
 
@@ -57,7 +57,7 @@ jobs:
           cat /.ssh/id_rsa
 
           cd .ssh/ 
-          
+
           ls
 
       - name: Run Ansible playbook
