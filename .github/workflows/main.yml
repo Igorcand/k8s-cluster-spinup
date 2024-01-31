@@ -50,7 +50,8 @@ jobs:
           echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
           unset PRIVATE_KEY
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H terraform_directory/ansible_inventory.ini >> ~/.ssh/known_hosts
+
+          cat ~/.ssh/id_rsa
 
       - name: Run Ansible playbook
       
