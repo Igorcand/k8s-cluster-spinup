@@ -7,7 +7,6 @@ terraform {
     }
 }
 
-//TODO: NÃO SUBIR ESSE ARQUIVO COM AS INFORMAÇÕES DE ACESS KEY E SECRET KEY
 provider "aws" {
     region = "us-east-1"
 }
