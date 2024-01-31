@@ -57,6 +57,7 @@ jobs:
           cat /.ssh/id_rsa
 
           cd .ssh/ 
+          
           ls
 
       - name: Run Ansible playbook
