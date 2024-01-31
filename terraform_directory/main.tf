@@ -10,8 +10,6 @@ terraform {
 //TODO: NÃO SUBIR ESSE ARQUIVO COM AS INFORMAÇÕES DE ACESS KEY E SECRET KEY
 provider "aws" {
     region = "us-east-1"
-    access_key = ""
-    secret_key = ""
 }
 
 resource "aws_key_pair" "k8s-key" {
