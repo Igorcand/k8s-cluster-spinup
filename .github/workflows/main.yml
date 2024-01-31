@@ -3,7 +3,7 @@ name: AWS Terraform and Ansible Pipeline
 on:
   push:
     branches:
-      - main  # ajuste conforme sua branch principal
+      - master  # ajuste conforme sua branch principal
 
 jobs:
   deploy:
