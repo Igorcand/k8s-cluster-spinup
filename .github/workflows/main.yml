@@ -42,7 +42,7 @@ jobs:
           ansible --version
       - name: View available hosts
         run: |
-          cat ansible_inventory.ini
+          cat terraform_directory/ansible_inventory.ini
 
       - name: Run Ansible playbook
         run: |
