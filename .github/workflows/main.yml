@@ -42,5 +42,4 @@ jobs:
           ansible --version
       - name: Run Ansible playbook
         run: |
-          cd ansible_directory
-          ansible-playbook -i ../terraform_directory/ansible_inventory.ini install_docker_and_k8s.yml
+          ansible-playbook -i /terraform_directory/ansible_inventory.ini install_docker_and_k8s.yml
