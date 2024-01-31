@@ -42,11 +42,8 @@ jobs:
           ansible --version
       - name: View available hosts
         run: |
-          ls
-          cd terraform_directory/ 
-          ls
           cat ansible_inventory.ini
 
       - name: Run Ansible playbook
         run: |
-          ansible-playbook -i terraform_directory/ansible_inventory.ini install_docker_and_k8s.yml
+          ansible-playbook -i terraform_directory/ansible_inventory.ini site.yml
