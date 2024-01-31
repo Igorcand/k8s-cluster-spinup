@@ -46,12 +46,15 @@ jobs:
 
       - name: Configure SSH
         run: |
-          mkdir -p ~/.ssh/
-          echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
-          unset PRIVATE_KEY
-          chmod 600 ~/.ssh/id_rsa
+          mkdir -p /.ssh/
 
-          cat ~/.ssh/id_rsa
+          ls -la /.ssh/
+
+          echo "$PRIVATE_KEY" > /.ssh/id_rsa
+          unset PRIVATE_KEY
+          chmod 600 /.ssh/id_rsa
+
+          cat /.ssh/id_rsa
 
           cd .ssh/ 
           ls
