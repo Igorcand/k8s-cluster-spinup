@@ -1,0 +1,5 @@
+- name: Setup worker node
+  become: yes
+  hosts: tag_type_worker
+  roles:
+    - k8s-worker

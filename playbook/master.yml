@@ -1,0 +1,5 @@
+- name: Setup master node
+  become: yes
+  hosts: tag_type_master
+  roles:
+    - k8s-master
