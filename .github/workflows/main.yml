@@ -50,11 +50,9 @@ jobs:
 
           ls -la /.ssh/
 
-          echo "$PRIVATE_KEY" > /.ssh/id_rsa
-          unset PRIVATE_KEY
-          chmod 600 /.ssh/id_rsa
-
-          cat /.ssh/id_rsa
+          sudo echo "$PRIVATE_KEY" > /.ssh/id_rsa
+          sudo unset PRIVATE_KEY
+          sudo chmod 600 /.ssh/id_rsa
 
           cd .ssh/ 
 
