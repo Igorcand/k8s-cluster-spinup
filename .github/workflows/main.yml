@@ -46,4 +46,4 @@ jobs:
 
       - name: Run Ansible playbook
         run: |
-          ansible-playbook -i terraform_directory/ansible_inventory.ini site.yml
+          ansible-playbook -i terraform_directory/ansible_inventory.ini --limit "tag_name_k8s" site.yml
