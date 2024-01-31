@@ -1,4 +1,7 @@
-[ec2_instances]
-%{ for ip in instance_ips ~}
+[workers]
+%{ for ip in worker_ips ~}
 ${ip}
 %{ endfor ~}
+
+[masters]
+${master_ip}
