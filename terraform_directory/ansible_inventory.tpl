@@ -1,5 +1,5 @@
-${master_tags}
+[tag_name_${master_tags["type"]}]
 ${master_ip}
 
-${worker_tags}
+[tag_name_${worker_tags["type"]}]
 ${worker_ips}

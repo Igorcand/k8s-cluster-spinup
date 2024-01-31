@@ -5,8 +5,8 @@ resource "local_file" "ansible_inventory" {
     has_workers = length(aws_instance.kubernetes-worker[*]) > 1
 
     // Converter os mapas de tags em strings
-    master_tags = jsonencode(merge(aws_instance.kubernetes-master[0].tags, { "Type" = "master" }))
-    worker_tags = jsonencode(merge(aws_instance.kubernetes-worker[0].tags, { "Type" = "worker" }))
+    master_tags = jsonencode(aws_instance.kubernetes-master[0].tags)
+    worker_tags = jsonencode(aws_instance.kubernetes-worker[0].tags)
   })
 
   filename = "${path.module}/ansible_inventory.ini"
@@ -21,7 +21,7 @@ data "template_file" "ansible_inventory" {
     has_workers = length(aws_instance.kubernetes-worker[*]) > 1
 
     // Converter os mapas de tags em strings
-    master_tags = jsonencode(merge(aws_instance.kubernetes-master[0].tags, { "Type" = "master" }))
-    worker_tags = jsonencode(merge(aws_instance.kubernetes-worker[0].tags, { "Type" = "worker" }))
+    master_tags = jsonencode(aws_instance.kubernetes-master[0].tags)
+    worker_tags = jsonencode(aws_instance.kubernetes-worker[0].tags)
   }
 }
