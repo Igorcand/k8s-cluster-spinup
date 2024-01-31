@@ -1,5 +1,9 @@
-[tag_name_${master_tags["type"]}]
+[tag_name_k8s]
+${master_ip}
+${worker_ips}
+
+[tag_type_master]
 ${master_ip}
 
-[tag_name_${worker_tags["type"]}]
+[tag_type_worker]
 ${worker_ips}
