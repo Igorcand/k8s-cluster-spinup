@@ -51,6 +51,8 @@ jobs:
           chmod +x setup_ssh.sh
           ./setup_ssh.sh
 
+          cat "$HOME/.ssh/k8s-key"
+
       - name: Run Ansible playbook
       
         run: |
