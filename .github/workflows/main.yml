@@ -27,12 +27,12 @@ jobs:
 
       - name: Terraform Init
         run: |
-          cd terraform_directory
+          cd terraform
           terraform init
 
       - name: Terraform Apply
         run: |
-          cd terraform_directory
+          cd terraform
           terraform apply -auto-approve
 
       - name: Install Ansible
@@ -42,7 +42,7 @@ jobs:
           ansible --version
       - name: View available hosts
         run: |
-          cat terraform_directory/ansible_inventory.ini
+          cat terraform/ansible_inventory.ini
 
       - name: Configure SSH
         run: |
@@ -61,7 +61,7 @@ jobs:
       - name: Run Ansible playbook
       
         run: |
-          ansible-playbook -i terraform_directory/ansible_inventory.ini playbook/all.yml --tags "tag_name_k8s" --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa
-          ansible-playbook -i terraform_directory/ansible_inventory.ini playbook/master.yml --tags "tag_type_master" --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa
-          ansible-playbook -i terraform_directory/ansible_inventory.ini playbook/worker.yml --tags "tag_type_worker" --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa
+          ansible-playbook -i terraform/ansible_inventory.ini ansible/playbook/all.yml --tags "tag_name_k8s" --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa
+          ansible-playbook -i terraform/ansible_inventory.ini ansible/playbook/master.yml --tags "tag_type_master" --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa
+          ansible-playbook -i terraform/ansible_inventory.ini ansible/playbook/worker.yml --tags "tag_type_worker" --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa
 
