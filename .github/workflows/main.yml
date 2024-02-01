@@ -44,19 +44,12 @@ jobs:
         run: |
           cat terraform/ansible_inventory.ini
 
-      - name: Configure SSH
+      - name: Executar script SSH
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
-          sudo mkdir /.ssh/
-
-          ls -la /.ssh/
-
-          sudo echo "$PRIVATE_KEY" > /.ssh/id_rsa
-          sudo unset PRIVATE_KEY
-          sudo chmod 600 /.ssh/id_rsa
-
-          cd .ssh/ 
-
-          ls
+          chmod +x setup_ssh.sh
+          ./setup_ssh.sh
 
       - name: Run Ansible playbook
       
